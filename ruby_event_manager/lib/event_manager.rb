@@ -14,7 +14,7 @@ def clean_phone(phone)
 	# validate and format a phone number
 	# e.g. 6154385000 => (615) 438-5000; 315.450.6000 => (315) 450-6000
 	# strip out any whitespace, -, (, ), and .
-	phone.gsub!(/([.()\s+-])/, "")
+	phone.gsub!(/[^\d]/, "")
 	# if the phone number is 11 digits and the first number is 1, trim the 1 and use the remaining 10 digits
 	if phone.length == 11 && phone.start_with?("1")
 		phone.slice!(0)
