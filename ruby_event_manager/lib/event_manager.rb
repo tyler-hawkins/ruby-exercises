@@ -17,7 +17,7 @@ def clean_phone(phone)
 	phone.gsub!(/([.()\s+-])/, "")
 	# if the phone number is 11 digits and the first number is 1, trim the 1 and use the remaining 10 digits
 	if phone.length == 11 && phone.start_with?("1")
-		phone = phone[1..10]
+		phone.slice!(0)
 	# if the phone number is 11 digits and the first number is not 1, then it is a bad number
 	# if the phone number is more than 11 digits, assume that it is a bad number
 	elsif phone.length != 10
